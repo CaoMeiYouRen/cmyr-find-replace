@@ -19,7 +19,11 @@
 </p>
 
 
-> 一个可以批量查找和替换的 cli
+> 一个可以批量查找和替换的 cli 
+>
+> 遍历指定文件夹下的指定文件，允许替换指定内容。
+>
+> 默认忽略 `node_modules`下的所有内容
 
 ### 🏠 [主页](https://github.com/CaoMeiYouRen/cmyr-find-replace#readme)
 
@@ -39,7 +43,7 @@
 ## 安装
 
 ```sh
-npm install cmyr-find-replace
+npm install cmyr-find-replace -g
 ```
 
 ## 使用
