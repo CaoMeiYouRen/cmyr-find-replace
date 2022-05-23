@@ -23,7 +23,6 @@
     "lint": "cross-env NODE_ENV=production eslint src --fix --ext .ts,.js",
     "prebuild": "rimraf dist",
     "build": "cross-env NODE_ENV=production rollup -c",
-    "postbuild": "",
     "build:type": "api-extractor run",
     "postbuild:type": "rimraf \"dist/**/!(*.js?(.map)|index.d.ts)\"",
     "analyzer": "cross-env NODE_ENV=production ANALYZER=true rollup -c",
@@ -32,9 +31,7 @@
     "rm": "rimraf node_modules",
     "start": "node ./dist/index",
     "commit": "cz",
-    "prepare": "husky install",
-    "build:dev": "rimraf dist && cross-env NODE_ENV=development rollup -c && rimraf temp && cross-env NODE_ENV=development ct create",
-    "build:prod": "npm run build && rimraf temp && cross-env NODE_ENV=production ct create"
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
