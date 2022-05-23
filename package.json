@@ -1,6 +1,6 @@
 {
   "name": "cmyr-find-replace",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "一个可以批量查找和替换的cli",
   "author": "CaoMeiYouRen",
   "private": false,
