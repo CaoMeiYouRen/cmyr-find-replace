@@ -7,7 +7,6 @@
   "license": "MIT",
   "type": "commonjs",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "bin": {
     "cfr": "dist/index.js",
@@ -108,8 +107,6 @@
     "fs-extra": "^10.1.0",
     "glob": "^8.0.3",
     "minimist": "^1.2.6",
-    "ora": "5.4.1",
-    "plop": "2.7.6",
     "tslib": "^2.4.0"
   },
   "pnpm": {

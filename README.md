@@ -19,7 +19,7 @@
 </p>
 
 
-> 一个可以批量查找和替换的 cli 
+> 草梅批量查找和替换器，一个可以批量查找和替换的 cli 
 >
 > 遍历指定文件夹下的指定文件，允许替换指定内容。
 >
@@ -49,7 +49,21 @@ npm install cmyr-find-replace -g
 ## 使用
 
 ```sh
-npm run start
+cfr -h  # 查看帮助信息
+crf -i **/*.js -f TODO -o output.txt # 查找 当前目录下的所有 js 文件，找出包含 TODO 关键的文件，并将文件路径输出到 output.txt
+```
+
+```txt
+草梅批量查找和替换器
+
+Options:
+  -v, --version            output the version number
+  -d, --debug              debug
+  -i, --input <dir>        指定扫描目录，支持 glob 语法
+  -o, --output [path]      指定输出结果的路径，默认为当前目录的 output.txt
+  -f, --find <keyword>     查找的关键词，默认为查找模式
+  -r, --replace <keyword>  替换后的关键词，如果设置该项则为替换模式
+  -h, --help               display help for command
 ```
 
 ## 开发
