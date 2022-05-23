@@ -1,5 +1,12 @@
 # cmyr-find-replace
 
+## [1.0.1](https://github.com/CaoMeiYouRen/cmyr-find-replace/compare/v1.0.0...v1.0.1) (2022-05-23)
+
+
+### 🐛 Bug 修复
+
+* 修复 版本号错误 ([e4cc91b](https://github.com/CaoMeiYouRen/cmyr-find-replace/commit/e4cc91b))
+
 # 1.0.0 (2022-05-23)
 
 
