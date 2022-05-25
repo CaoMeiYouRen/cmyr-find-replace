@@ -10,7 +10,7 @@ const asyncGlob = promisify(glob)
 const program = new Command('cfr')
     .description('草梅批量查找和替换器')
     .action(async (args) => {
-        const { debug = false, input, output, find, replace } = args
+        const { debug = false, input, output, find, replace, ignore = [] } = args
         if (!input) {
             console.error('必须指定 扫描目录！')
             return
@@ -21,7 +21,7 @@ const program = new Command('cfr')
         }
         const inputPath = input.replaceAll('\\', '/')
         const files: string[] = await asyncGlob(inputPath, {
-            ignore: ['node_modules/**', '**/node_modules/**', './node_modules/**', '/node_modules/**', 'dist/**', './dist/**'],
+            ignore: ['node_modules/**', '**/node_modules/**', './node_modules/**', '/node_modules/**', 'dist/**', './dist/**', '**/dist/**', '/dist/**', ...ignore],
             absolute: true,
         })
         if (debug) {
@@ -83,6 +83,7 @@ program.option('-i, --input <dir>', '指定扫描目录，支持 glob 语法')
 program.option('-o, --output [path]', '指定输出结果的路径，默认为当前目录的 output.txt')
 program.option('-f, --find <keyword>', '查找的关键词，默认为查找模式')
 program.option('-r, --replace <keyword>', '替换后的关键词，如果设置该项则为替换模式')
+program.option('-g, --ignore <dirs...>', '需要忽略的 dirs')
 
 program.parse(process.argv)
 

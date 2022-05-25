@@ -50,7 +50,7 @@ npm install cmyr-find-replace -g
 
 ```sh
 cfr -h  # 查看帮助信息
-crf -i **/*.js -f TODO -o output.txt # 查找 当前目录下的所有 js 文件，找出包含 TODO 关键的文件，并将文件路径输出到 output.txt
+cfr -i **/*.js -f TODO -o output.txt # 查找 当前目录下的所有 js 文件，找出包含 TODO 关键的文件，并将文件路径输出到 output.txt
 ```
 
 ```txt
