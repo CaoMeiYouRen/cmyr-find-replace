@@ -1,5 +1,12 @@
 # cmyr-find-replace
 
+# [1.1.0](https://github.com/CaoMeiYouRen/cmyr-find-replace/compare/v1.0.1...v1.1.0) (2022-05-25)
+
+
+### ✨ 新功能
+
+* 新增 ignore 功能 ([270f090](https://github.com/CaoMeiYouRen/cmyr-find-replace/commit/270f090))
+
 ## [1.0.1](https://github.com/CaoMeiYouRen/cmyr-find-replace/compare/v1.0.0...v1.0.1) (2022-05-23)
 
 
