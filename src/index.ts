@@ -16,8 +16,7 @@ const program = new Command('cfr')
             return
         }
         if (!find) {
-            console.error('必须指定 查找关键词！')
-            return
+            console.warn('警告：未指定 查找关键词！将不匹配文件内容！')
         }
         const inputPath = input.replaceAll('\\', '/')
         const files: string[] = await asyncGlob(inputPath, {
@@ -42,28 +41,38 @@ const program = new Command('cfr')
             }
         }
         const foundFiles: string[] = [] // 找到的文件的路径
-        for await (const filePath of files) {
-            try {
-                const rawFile = (await fs.readFile(filePath)).toString()
-                if (rawFile.includes(find)) {
-                    console.log(`查找到文件：${filePath}`)
-                    foundFiles.push(filePath)
-                    if (replace) {
-                        // 如果为 替换模式
-                        const newFile = rawFile.replaceAll(find, replace)
-                        await fs.writeFile(filePath, newFile)
-                        console.log(`成功替换文件：${filePath}`)
+        if (find) {
+            for await (const filePath of files) {
+                try {
+                    const rawFile = (await fs.readFile(filePath)).toString()
+                    if (rawFile.includes(find)) {
+                        console.log(`查找到文件：${filePath}`)
+                        foundFiles.push(filePath)
+                        if (replace) {
+                            // 如果为 替换模式
+                            const newFile = rawFile.replaceAll(find, replace)
+                            await fs.writeFile(filePath, newFile)
+                            console.log(`成功替换文件：${filePath}`)
+                        }
                     }
+                } catch (error) {
+                    console.error(error)
                 }
-            } catch (error) {
-                console.error(error)
             }
+        } else {
+            foundFiles.push(...files)
         }
+
         const outputFile = foundFiles.join('\n')
-        if (debug) {
+        if (find && debug) {
             console.log(`成功查找到以下包含关键词 ${find} 的文件`)
             console.log(outputFile)
         }
+        if (!find) {
+            console.log('成功查找到以下文件')
+            console.log(outputFile)
+        }
+
         if (output) {
             const outputPath = typeof output === 'string' ? output : 'output.txt'
             await fs.writeFile(outputPath, outputFile)
